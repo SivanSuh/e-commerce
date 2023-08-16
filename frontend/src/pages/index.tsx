@@ -1,19 +1,27 @@
-import Image from "next/image";
-import { Inter } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Card from "@/components/Products/Card";
 import Checkbox from "@/components/Atoms/Checkbox";
+import service from "../service/productService";
+import FilterSidebar from "@/components/Products/FilterSidebar";
 
-const inter = Inter({ subsets: ["latin"] });
-
-export default function Home() {
+export default function Home({ data }: any) {
+  console.log("ress", data);
   return (
     <>
       <Navbar />
       <main className="p-5 flex items-start">
-        <Checkbox title="Electronic" />
-        <Card />
+        <FilterSidebar category={data} />
+        <Card data={data} />
       </main>
     </>
   );
+}
+
+export async function getServerSideProps() {
+  const res = await service.getProducts();
+  return {
+    props: {
+      data: res.data,
+    },
+  };
 }
