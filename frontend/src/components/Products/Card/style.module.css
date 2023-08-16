@@ -1,0 +1,13 @@
+.cardContainer {
+    @apply grid grid-cols-4    gap-10
+}
+
+.card {
+    @apply  border-2 h-96 flex flex-col items-center justify-center p-1
+}
+.title {
+    @apply my-2
+}
+.figure{
+    @apply flex items-stretch h-3/5 justify-center
+}

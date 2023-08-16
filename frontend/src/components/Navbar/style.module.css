@@ -1,0 +1,6 @@
+.nav {
+    @apply h-20 w-full flex items-center  bg-[#1b6393] 
+}
+.container {
+    @apply max-w-7xl mx-auto flex items-center justify-between  w-full px-2 text-white
+}

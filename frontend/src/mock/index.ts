@@ -1,0 +1,1 @@
+export {default as ProductsMockData } from  "./products" 
