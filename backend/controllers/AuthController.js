@@ -41,19 +41,19 @@ const login = async (req, res) => {
           res.status(200).send(user);
         }
       });
-      const info = {
-        userName: user.userName,
-        company: user.company,
-        image: user.image,
-      };
-      jwt.sign(
-        info,
-        req.app.get("api_secret_key"),
-        { expiresIn: "120d" },
-        (err, token) => {
-          res.json({ token, userData: user });
-        }
-      );
+      //   const info = {
+      //     userName: user.userName,
+      //     company: user.company,
+      //     image: user.image,
+      //   };
+      //   jwt.sign(
+      //     info,
+      //     req.app.get("api_secret_key"),
+      //     { expiresIn: "120d" },
+      //     (err, token) => {
+      //       res.json({ token, userData: user });
+      //     }
+      //   );
     }
   } catch (error) {
     res.status(400).json({

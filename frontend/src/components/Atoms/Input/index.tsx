@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import Style from "./style.module.css";
 
 interface InputProps {
-  type?: "text";
+  type?: "text" | "password";
   placeholder?: string;
 }
 

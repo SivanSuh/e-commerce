@@ -1,0 +1,9 @@
+.form {
+    @apply flex flex-col md:max-w-3xl justify-center gap-4  mx-auto translate-y-1/2 
+}
+.title {
+    @apply text-3xl text-center mb-2
+}
+.buttonWrapper {
+    @apply w-full flex justify-between items-center
+}

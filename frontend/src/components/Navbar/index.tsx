@@ -9,7 +9,7 @@ const Navbar = () => {
       <div className={Style.container}>
         <h1>E-Commerce</h1>
         <Input />
-        <Button title="Kayıt Ol" />
+        <Button title="Kayıt Ol" link href="/auth/login" />
       </div>
     </nav>
   );
