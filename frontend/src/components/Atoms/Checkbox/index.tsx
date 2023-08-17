@@ -7,7 +7,7 @@ interface ChackboxProps {
 
 const Checkbox: FC<ChackboxProps> = ({ title }) => {
   return (
-    <label className="flex  whitespace-nowrap items-center mb-1 w-40">
+    <label className={Style.label}>
       <input type="checkbox" className={Style.checkbox} />
       <span className="mx-3">{title}</span>
     </label>
