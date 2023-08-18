@@ -4,3 +4,6 @@
 .container {
     @apply max-w-7xl mx-auto flex items-center justify-between  w-full px-2 text-white
 }
+.login{
+    @apply flex justify-between items-center
+}

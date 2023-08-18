@@ -3,14 +3,17 @@
 }
 
 .card {
-    @apply  border-2 h-96 flex flex-col items-center justify-center p-1 w-60
+    @apply  border-[0.25px] rounded-md h-96 flex flex-col items-center justify-center p-1 w-60 hover:shadow-2xl ease-in-out duration-300
 }
 .title {
     @apply my-2
 }
 .figure{
-    @apply flex items-stretch h-3/5 justify-center
+    @apply flex items-stretch h-3/5 justify-center relative 
 }
 .price {
     @apply font-bold text-sky-500
+}
+.icon {
+    @apply absolute 
 }

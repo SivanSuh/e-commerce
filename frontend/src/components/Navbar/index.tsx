@@ -13,9 +13,16 @@ const Navbar = () => {
       <div className={Style.container}>
         <h1>E-Commerce</h1>
         {/* <Input /> */}
-        <div>
-          <Button title="Kayıt Ol" link href="/auth/login" />
-        </div>
+        {formData ? (
+          <div className={Style.login}>
+            <h2 className="mx-2">{formData.userName}</h2>
+            <Button title="Çıkış Yap" link href="/auth/login" />
+          </div>
+        ) : (
+          <div className={Style.login}>
+            <Button title="Kayıt Ol" link href="/auth/login" />
+          </div>
+        )}
       </div>
     </nav>
   );

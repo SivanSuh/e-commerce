@@ -8,6 +8,7 @@ import { login } from "@/store/slices/authSlice";
 import { AppDispatch, RootState } from "@/store/store";
 import { useSelector } from "react-redux";
 import { useRouter } from "next/router";
+import cookies from "js-cookie";
 
 const Login = () => {
   const {
@@ -25,16 +26,17 @@ const Login = () => {
   const dispatch = AppDispatch();
   const router = useRouter();
 
-  useEffect(() => {
-    if (formData !== null) {
-      router.push("/");
-    }
-  }, [formData]);
-
-  console.log("formdata", formData);
   const onSubmit: SubmitHandler<FieldValues> = async (data: any) => {
     console.log("data", data);
-    await dispatch(login(data));
+    await dispatch(login(data))
+      .unwrap()
+      .then(() => {
+        router.push("/");
+        // nookies.set(data, "login", data, {
+        //   maxAge: 30 * 24 * 60 * 60,
+        //   path: "/",
+        // });
+      });
   };
 
   console.log("errr", errors);

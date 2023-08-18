@@ -1,5 +1,5 @@
 .button {
-    @apply border-[#7C8DB0] border p-2 bg-black text-white hover:bg-gray-400 ease-in-out
+    @apply border-[#7C8DB0] border p-2 bg-black text-white hover:bg-gray-400 ease-in-out rounded-md w-full
 }
 .bgNone{
     @apply border-none  bg-white text-[#1B6393] hover:underline !important

@@ -2,6 +2,7 @@ import LoginModel from "@/modelsType/LoginModel";
 import { api } from "./api";
 import RegisterModel from "@/modelsType/RegisterModel";
 
+
 const loginService = async (data:LoginModel) => {
     return api({
         url:"/auth/login",
