@@ -18,7 +18,7 @@
     @apply absolute 
 }
 .column{
-    @apply flex flex-col
+    @apply flex flex-col items-end
 }
 .newProduct {
     @apply w-40 flex justify-end text-end items-center my-2

@@ -3,15 +3,23 @@ import React, { FC } from "react";
 import { useForm } from "react-hook-form";
 import Style from "./style.module.css";
 import SelectBox from "@/components/Atoms/Select";
+import Button from "@/components/Atoms/Button";
+import { AppDispatch } from "@/store/store";
+import { AddNewProducts } from "@/store/slices/addProductSlice";
 
 const NewProduct = () => {
-  const { register } = useForm();
+  const { register, handleSubmit } = useForm();
+  const dispatch = AppDispatch();
+
+  const onSubmit = async (data: any) => {
+    await dispatch(AddNewProducts(data));
+  };
   return (
-    <form className={Style.form}>
+    <form className={Style.form} onSubmit={handleSubmit(onSubmit)}>
       <Input
         register={register}
-        id="productName"
-        name="productName"
+        id="title"
+        name="title"
         placeholder="Ürün Adı"
       />
       <Input
@@ -22,11 +30,17 @@ const NewProduct = () => {
       />
       <Input
         register={register}
-        id="picture"
-        name="picture"
+        id="image"
+        name="image"
         placeholder="Ürün Fotoğrafı"
       />
-      <SelectBox array={["tsort", "jacket", "accessory"]} />
+      <SelectBox
+        data={["tsort", "jacket", "accessory"]}
+        register={register}
+        id="category"
+        name="category"
+      />
+      <Button title="Ürün Ekle" type="submit" />
     </form>
   );
 };

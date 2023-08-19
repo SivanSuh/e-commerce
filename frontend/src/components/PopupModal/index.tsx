@@ -11,7 +11,11 @@ const PopupModal: FC<PopupModalProps> = ({ children, close, open }) => {
           <div className={Style.container}>
             <div className={Style.flexStructure}>
               <p></p>
-              <GrClose onClick={() => close?.(false)} />
+              <GrClose
+                size={20}
+                onClick={() => close?.(false)}
+                style={{ cursor: "pointer" }}
+              />
             </div>
             <main>{children}</main>
           </div>
