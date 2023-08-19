@@ -16,9 +16,9 @@ const Register = () => {
       password: "",
     },
   });
-
+  const onSubmit = (data: any) => console.log("register ", data);
   return (
-    <form className={Style.form}>
+    <form className={Style.form} onSubmit={handleSubmit(onSubmit)}>
       <h2 className={Style.title}>Register Page</h2>
       <Input id="email" name="email" register={register} placeholder="Email" />
       <Input

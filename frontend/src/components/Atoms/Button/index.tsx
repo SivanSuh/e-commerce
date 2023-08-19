@@ -8,6 +8,7 @@ interface ButtonProps {
   href?: string;
   background?: boolean;
   type?: "submit" | "button";
+  onClick?: () => void;
 }
 
 const Button: FC<ButtonProps> = ({
@@ -16,6 +17,7 @@ const Button: FC<ButtonProps> = ({
   href,
   background = false,
   type = "button",
+  onClick,
 }) => {
   return (
     <>
@@ -27,7 +29,7 @@ const Button: FC<ButtonProps> = ({
           {title}
         </Link>
       ) : (
-        <button className={Style.button} type={type}>
+        <button className={Style.button} type={type} onClick={onClick}>
           {title}
         </button>
       )}

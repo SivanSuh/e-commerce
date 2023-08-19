@@ -5,9 +5,12 @@ import Layout from "@/components/Layout";
 import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import LoginPage from "./auth/login";
+import Button from "@/components/Atoms/Button";
+import PopupModal from "@/components/PopupModal";
 
 export default function Home({ data }: any) {
   const [login, setLogin] = useState(false);
+
   useEffect(() => {
     if (Cookies.get("login")) {
       setLogin(true);
@@ -15,6 +18,7 @@ export default function Home({ data }: any) {
       setLogin(false);
     }
   }, [login]);
+
   return (
     <>
       {login ? (

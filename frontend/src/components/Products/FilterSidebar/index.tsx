@@ -8,11 +8,15 @@ interface FilterSidebarProps {
 
 const FilterSidebar: React.FC<FilterSidebarProps> = ({ category }) => {
   console.log("category", category);
+
   return (
     <main>
       <h2 className="mb-3 font-bold">CATEGORY</h2>
       {category.map((item: ProductCard) => (
-        <Checkbox title={item?.category} key={item._id} />
+        <Checkbox
+          title={item?.category?.categoryName}
+          key={item.category?._id}
+        />
       ))}
     </main>
   );

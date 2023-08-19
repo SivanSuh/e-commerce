@@ -4,14 +4,11 @@ const ProductModel = require("../models/ProductModels");
 const addProducts = async (req, res) => {
   try {
     const { title, price, image, category } = req.body;
-    const cate = await CategoryModels.findOne({ categoryName: category });
+    const cate = await CategoryModels.findOne({
+      categoryName: category,
+    });
     console.log("caet", cate);
-    // console.log("cate", cate);
-    // if (!cate) {
-    //   await CategoryModels.create({
-    //     categoryName: category,
-    //   });
-    // }
+
     const products = await ProductModel.create({
       title: title,
       price: price,
@@ -25,7 +22,7 @@ const addProducts = async (req, res) => {
 
 const getAllProducts = async (req, res) => {
   try {
-    const allProducts = await ProductModel.find();
+    const allProducts = await ProductModel.find().populate("category");
     res.send(allProducts);
   } catch (err) {
     console.log(err);

@@ -35,25 +35,29 @@ const login = async (req, res) => {
     const { email, password } = req.body;
     const user = await AuthModels.findOne({ email });
 
+    // if (user == null) {
+    //   res.status(403).json({ message: "Kullanıcı adı ve şifre hatalı" });
+    // }
+
     if (user) {
       bcrypt.compare(password, user.password, (err, same) => {
         if (same) {
           res.status(200).send(user);
         }
       });
-      //   const info = {
-      //     userName: user.userName,
-      //     company: user.company,
-      //     image: user.image,
-      //   };
-      //   jwt.sign(
-      //     info,
-      //     req.app.get("api_secret_key"),
-      //     { expiresIn: "120d" },
-      //     (err, token) => {
-      //       res.json({ token, userData: user });
-      //     }
-      //   );
+      // const info = {
+      //   userName: user.userName,
+      //   company: user.company,
+      //   image: user.image,
+      // };
+      // jwt.sign(
+      //   info,
+      //   req.app.get("api_secret_key"),
+      //   { expiresIn: "120d" },
+      //   (err, token) => {
+      //     res.json({ token, userData: user });
+      //   }
+      // );
     }
   } catch (error) {
     res.status(400).json({
