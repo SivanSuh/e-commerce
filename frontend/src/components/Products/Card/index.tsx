@@ -30,14 +30,14 @@ const Card: FC<CardProps> = ({ data }) => {
             <h2 className={Style.title}>{item.title}</h2>
             <p className={Style.price}>{item.price}</p>
             <div className="my-2 w-full">
-              <Button title="Add To Card" />
+              <Button title="Add To Card" bgColor="#fb8233" />
             </div>
           </div>
         ))}
       </main>
 
       <PopupModal close={setOpenModal} open={openModal}>
-        <NewProduct />
+        <NewProduct setOpenModal={setOpenModal} />
       </PopupModal>
     </template>
   );

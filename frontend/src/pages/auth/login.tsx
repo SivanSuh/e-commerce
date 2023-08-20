@@ -4,8 +4,9 @@ import Layout from "@/components/Layout";
 const LoginPage = () => {
   return (
     <header className="h-screen">
-      <Layout />
-      <Login />
+      <Layout>
+        <Login />
+      </Layout>
     </header>
   );
 };

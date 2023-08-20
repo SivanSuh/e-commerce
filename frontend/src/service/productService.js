@@ -13,9 +13,16 @@ const getProducts = async () => {
     method: "GET",
   });
 };
+const getAllCategory = async () => {
+  return api({
+    url: "products/all-categories",
+    method: "GET",
+  });
+};
 const productService = {
   addProducts,
   getProducts,
+  getAllCategory,
 };
 
 export default productService;

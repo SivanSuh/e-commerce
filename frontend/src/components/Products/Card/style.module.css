@@ -1,9 +1,9 @@
 .cardContainer {
-    @apply grid grid-cols-4 gap-10
+    @apply flex flex-wrap gap-8 
 }
 
 .card {
-    @apply  border-[0.25px] rounded-md h-96 flex flex-col items-center justify-center p-1 w-60 hover:shadow-2xl ease-in-out duration-300
+    @apply  border-[0.25px] rounded-md h-96  flex flex-col items-center justify-center p-1 w-60 hover:shadow-2xl ease-in-out duration-300
 }
 .title {
     @apply my-2

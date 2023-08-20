@@ -1,6 +1,15 @@
 const CategoryModels = require("../models/CategoryModels");
 const ProductModel = require("../models/ProductModels");
 
+const getCategory = async (req, res) => {
+  try {
+    const categories = await CategoryModels.find();
+    if (categories) return res.send(categories);
+  } catch (error) {
+    throw error;
+  }
+};
+
 const addProducts = async (req, res) => {
   try {
     const { title, price, image, category } = req.body;
@@ -31,4 +40,5 @@ const getAllProducts = async (req, res) => {
 module.exports = {
   addProducts,
   getAllProducts,
+  getCategory,
 };

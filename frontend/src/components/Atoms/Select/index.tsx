@@ -9,16 +9,6 @@ import {
   useForm,
 } from "react-hook-form";
 
-// const SelectBox: FC<SelectBoxProps> = ({ array = [], id, required }) => {
-//   const { register } = useForm();
-//   return (
-//     <select className={Style.select} {...register(id, { required })}>
-//       {array.map((item) => (
-//         <option value={item}>{item}</option>
-//       ))}
-//     </select>
-//   );
-// };
 const SelectBox: FC<SelectBoxProps> = ({
   placeholder = "Lütfen Categori Seçiniz",
   register = () => {},
@@ -28,7 +18,7 @@ const SelectBox: FC<SelectBoxProps> = ({
   ...props
 }) => {
   return (
-    <div className=" relative  ">
+    <div className="w-full">
       <select
         {...props}
         {...register(name as string)}

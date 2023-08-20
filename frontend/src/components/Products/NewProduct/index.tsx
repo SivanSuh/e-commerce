@@ -6,13 +6,15 @@ import SelectBox from "@/components/Atoms/Select";
 import Button from "@/components/Atoms/Button";
 import { AppDispatch } from "@/store/store";
 import { AddNewProducts } from "@/store/slices/addProductSlice";
+import NewProductProps from "./props";
 
-const NewProduct = () => {
+const NewProduct: FC<NewProductProps> = ({ setOpenModal }) => {
   const { register, handleSubmit } = useForm();
   const dispatch = AppDispatch();
 
   const onSubmit = async (data: any) => {
     await dispatch(AddNewProducts(data));
+    setOpenModal?.(false);
   };
   return (
     <form className={Style.form} onSubmit={handleSubmit(onSubmit)}>

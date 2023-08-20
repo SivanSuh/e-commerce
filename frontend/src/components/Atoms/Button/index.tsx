@@ -1,15 +1,7 @@
 import React, { FC } from "react";
 import Style from "./style.module.css";
 import Link from "next/link";
-
-interface ButtonProps {
-  title: string;
-  link?: boolean;
-  href?: string;
-  background?: boolean;
-  type?: "submit" | "button";
-  onClick?: () => void;
-}
+import ButtonProps from "./props";
 
 const Button: FC<ButtonProps> = ({
   title = "Gönder",
@@ -18,6 +10,7 @@ const Button: FC<ButtonProps> = ({
   background = false,
   type = "button",
   onClick,
+  bgColor = "black",
 }) => {
   return (
     <>
@@ -29,7 +22,12 @@ const Button: FC<ButtonProps> = ({
           {title}
         </Link>
       ) : (
-        <button className={Style.button} type={type} onClick={onClick}>
+        <button
+          style={{ backgroundColor: bgColor }}
+          className={Style.button}
+          type={type}
+          onClick={onClick}
+        >
           {title}
         </button>
       )}

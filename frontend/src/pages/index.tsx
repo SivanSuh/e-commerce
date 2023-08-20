@@ -5,8 +5,6 @@ import Layout from "@/components/Layout";
 import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import LoginPage from "./auth/login";
-import Button from "@/components/Atoms/Button";
-import PopupModal from "@/components/PopupModal";
 
 export default function Home({ data }: any) {
   const [login, setLogin] = useState(false);
@@ -17,18 +15,19 @@ export default function Home({ data }: any) {
     } else {
       setLogin(false);
     }
-  }, [login]);
+  }, [login, data]);
 
+  console.log("data", { data });
+  console.log("cooki", Cookies.get("login"));
   return (
     <>
       {login ? (
-        <>
-          <Layout />
+        <Layout>
           <main className="p-5 flex items-start">
             <FilterSidebar category={data} />
             <Card data={data} />
           </main>
-        </>
+        </Layout>
       ) : (
         <LoginPage />
       )}
@@ -38,6 +37,7 @@ export default function Home({ data }: any) {
 
 export async function getServerSideProps() {
   const res = await service.getProducts();
+
   return {
     props: {
       data: res.data,
