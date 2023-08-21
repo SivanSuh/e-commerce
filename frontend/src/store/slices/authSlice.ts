@@ -10,19 +10,21 @@ export const login = createAsyncThunk("login",async (body:LoginModel, {rejectWit
         cookies.set("login",JSON.stringify(body))
         return response
     } catch (error) {
-       return rejectWithValue(error)
+       return rejectWithValue(error?.request?.response)
     }
 } )
 
 interface AuthProps {
     formData:RegisterModel | null |unknown
     loading:boolean
+    error:any
     isLoggin:boolean
 }
 const initialState:AuthProps = {
     formData:null,
     loading:false,
-    isLoggin:false
+    isLoggin:false,
+    error:null
 }
 const authSlice = createSlice({
     name:"auth",
@@ -42,6 +44,7 @@ const authSlice = createSlice({
         })
         builder.addCase(login.rejected, (state,action) => {
             state.isLoggin = false
+            state.error = action?.payload
             state.formData =action.payload
         })
     }

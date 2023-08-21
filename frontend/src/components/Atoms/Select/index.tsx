@@ -2,12 +2,6 @@ import React, { FC } from "react";
 import SelectBoxProps from "./props";
 import { AiOutlineArrowDown } from "react-icons/ai";
 import Style from "./style.module.css";
-import {
-  FieldErrors,
-  FieldValues,
-  UseFormRegister,
-  useForm,
-} from "react-hook-form";
 
 const SelectBox: FC<SelectBoxProps> = ({
   placeholder = "Lütfen Categori Seçiniz",
