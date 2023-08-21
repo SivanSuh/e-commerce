@@ -15,7 +15,7 @@ const Navbar = () => {
         {/* <Input /> */}
         {formData ? (
           <div className={Style.login}>
-            <h2 className="mx-2">{formData?.userName}</h2>
+            <h2 className="mx-2">{formData?.user?.userName}</h2>
             <Button title="Çıkış Yap" link href="/auth/login" />
           </div>
         ) : (

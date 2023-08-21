@@ -22,7 +22,7 @@ const Login = () => {
       password: "",
     },
   });
-  const { formData } = useSelector((state: RootState) => state.auth);
+  const { formData, error } = useSelector((state: RootState) => state.auth);
   const dispatch = AppDispatch();
   const router = useRouter();
 
@@ -39,7 +39,7 @@ const Login = () => {
       });
   };
 
-  console.log("errr", errors);
+  console.log("errr", error);
   return (
     <form className={Style.form} onSubmit={handleSubmit(onSubmit)}>
       <h2 className={Style.title}>Login Page</h2>
@@ -70,6 +70,7 @@ const Login = () => {
           link
         />
       </div>
+      {error && <h2 className="text-center text-red-700">{error}</h2>}
     </form>
   );
 };
