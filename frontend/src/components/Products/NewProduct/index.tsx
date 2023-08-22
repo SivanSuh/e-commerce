@@ -14,8 +14,11 @@ const NewProduct: FC<NewProductProps> = ({ setOpenModal }) => {
 
   const onSubmit = async (data: any) => {
     await dispatch(AddNewProducts(data));
+
+    console.log("new add product", data);
     setOpenModal?.(false);
   };
+
   return (
     <form className={Style.form} onSubmit={handleSubmit(onSubmit)}>
       <Input

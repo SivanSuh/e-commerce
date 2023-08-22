@@ -8,7 +8,7 @@ interface AddProductProps{
 }
 
 const initialState:AddProductProps = {
-    datas:null
+    datas:[]
 }
 
 export const AddNewProducts = createAsyncThunk("add-new-products", async (data:ProductCardModel, { rejectWithValue}) => {

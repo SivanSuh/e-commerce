@@ -1,21 +1,35 @@
 import React from "react";
-import Input from "../Atoms/Input";
 import Style from "./style.module.css";
 import Button from "../Atoms/Button";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
+import { SlBasket } from "react-icons/sl";
+import Link from "next/link";
 
 const Navbar = () => {
   const { formData } = useSelector((state: RootState) => state.auth);
+  const { cardItem } = useSelector((state: RootState) => state.basket);
   console.log("form data", formData);
+  console.log("card Item", cardItem);
   return (
     <nav className={Style.nav}>
       <div className={Style.container}>
-        <h1>E-Commerce</h1>
-        {/* <Input /> */}
+        <Link href="/">
+          <h1>E-Commerce</h1>
+        </Link>
         {formData ? (
           <div className={Style.login}>
-            <h2 className="mx-2">{formData?.user?.userName}</h2>
+            <Link href="/basket">
+              <div className={Style.basket}>
+                <SlBasket size={30} />
+                <span className="absolute right-0 -top-5 z-10 text-red-500 text-2xl">
+                  {cardItem.length}
+                </span>
+              </div>
+            </Link>
+            <h2 className="mx-2 whitespace-nowrap">
+              {formData?.user?.userName}
+            </h2>
             <Button title="Çıkış Yap" link href="/auth/login" />
           </div>
         ) : (

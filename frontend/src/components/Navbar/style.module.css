@@ -1,9 +1,12 @@
 .nav {
-    @apply h-20 w-full flex items-center  bg-[#1b6393] 
+    @apply h-20 w-full flex items-center  bg-[#1b6393] py-3
 }
 .container {
     @apply max-w-7xl mx-auto flex items-center justify-between  w-full px-2 text-white
 }
 .login{
-    @apply flex justify-between items-center
+    @apply flex justify-between items-center gap-5
+}
+.basket {
+    @apply relative 
 }

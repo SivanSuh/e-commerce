@@ -49,7 +49,6 @@ const Login = () => {
         register={register}
         placeholder="Email"
         errors={errors}
-        required
       />
       <Input
         id="password"
@@ -58,7 +57,6 @@ const Login = () => {
         placeholder="Password"
         type="password"
         errors={errors}
-        required
       />
       <Button title="Login" type="submit" />
       <div className={Style.buttonWrapper}>
