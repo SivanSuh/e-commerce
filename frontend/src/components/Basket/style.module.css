@@ -1,6 +1,9 @@
 .basket {
-    @apply w-3/4 gap-5  flex  border items-center m-5 p-2
+    @apply  gap-5  flex  border items-center m-5 p-2
 } 
 .container {
     @apply max-w-7xl mx-auto
+}
+.counter{
+    @apply flex items-center
 }
