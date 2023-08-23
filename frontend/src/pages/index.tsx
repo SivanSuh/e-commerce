@@ -9,33 +9,37 @@ import { useSelector } from "react-redux";
 import { AppDispatch, RootState } from "@/store/store";
 import { getAllProduct } from "@/store/slices/addProductSlice";
 import { getAllCategories } from "@/store/slices/getCategories";
+import { login } from "@/store/slices/authSlice";
 
-export default function Home({ data }: any) {
-  const { datas, getData } = useSelector(
-    (state: RootState) => state.addProduct
-  );
+export default function Home() {
+  const { getData } = useSelector((state: RootState) => state.addProduct);
   const { category } = useSelector((state: RootState) => state.getCategories);
-  const [login, setLogin] = useState(false);
+  const [logins, setLogin] = useState(false);
 
   const dispatch = AppDispatch();
-  useEffect(() => {
+  useLayoutEffect(() => {
     dispatch(getAllProduct());
-    dispatch(getAllCategories());
-  }, []);
+  }, [dispatch]);
 
+  useEffect(() => {
+    dispatch(getAllCategories());
+  }, [dispatch]);
+
+  const refreshState = Cookies.get("login");
   useEffect(() => {
     if (Cookies.get("login")) {
       setLogin(true);
+      // login(refreshState);
     } else {
       setLogin(false);
     }
-  }, [login]);
+  }, [logins]);
 
-  console.log("cookie", Cookies.get("login"));
+  console.log("refresh state", refreshState);
 
   return (
     <>
-      {login ? (
+      {logins ? (
         <Layout>
           <main className="p-5 flex items-start">
             <FilterSidebar category={category} />

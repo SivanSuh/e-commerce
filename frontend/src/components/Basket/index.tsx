@@ -1,12 +1,14 @@
-import { RootState } from "@/store/store";
+import { AppDispatch, RootState } from "@/store/store";
 import { useSelector } from "react-redux";
 import Style from "./style.module.css";
 import Button from "../Atoms/Button";
 import BasketCard from "./BasketCard";
+import { removeBasket } from "@/store/slices/addBasketSlice";
 
 const Basket = () => {
   const { cardItem } = useSelector((state: RootState) => state.basket);
   let total = 0;
+  const dispatch = AppDispatch();
 
   return (
     <main className={Style.container}>
@@ -26,7 +28,14 @@ const Basket = () => {
                 <div className={Style.buttonContainer}>
                   <p className="w-40">{item.title}</p>
                   <div className={Style.counter}>
-                    <Button title="-" color="black" bgColor="white" />
+                    <Button
+                      title="-"
+                      color="black"
+                      bgColor="white"
+                      onClick={() => {
+                        dispatch(removeBasket({ ...item, quantity: -1 }));
+                      }}
+                    />
                     <span className="mx-3">{item.quantity}</span>
                     <Button title="+" color="black" bgColor="white" />
                   </div>
