@@ -2,29 +2,43 @@ import { RootState } from "@/store/store";
 import { useSelector } from "react-redux";
 import Style from "./style.module.css";
 import Button from "../Atoms/Button";
+import BasketCard from "./BasketCard";
 
 const Basket = () => {
   const { cardItem } = useSelector((state: RootState) => state.basket);
+  let total = 0;
+
   return (
     <main className={Style.container}>
-      {cardItem?.map((item) => (
-        <div className={Style.basket} key={item._id}>
-          <p className="w-40">{item.title}</p>
-          <figure className="mx-5">
-            <img
-              src={item.image}
-              alt={item.title}
-              className="h-28 w-40 object-contain"
-            />
-          </figure>
-          <p className="">{item.price}</p>
-          <div className={Style.counter}>
-            <Button title="-1" />
-            <span className="mx-3">{item.quantity}</span>
-            <Button title="+1" />
-          </div>
-        </div>
-      ))}
+      <div className="flex flex-col w-3/4 gap-5">
+        {cardItem?.map((item) => {
+          total += item.price * item.quantity;
+          return (
+            <div className={Style.basket} key={item._id}>
+              <div className="flex">
+                <figure>
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="h-28 w-40 object-contain"
+                  />
+                </figure>
+                <div className={Style.buttonContainer}>
+                  <p className="w-40">{item.title}</p>
+                  <div className={Style.counter}>
+                    <Button title="-" color="black" bgColor="white" />
+                    <span className="mx-3">{item.quantity}</span>
+                    <Button title="+" color="black" bgColor="white" />
+                  </div>
+                </div>
+              </div>
+
+              <p className="font-bold">{`${item.price * item.quantity} TL`}</p>
+            </div>
+          );
+        })}
+      </div>
+      <BasketCard price={total} />
     </main>
   );
 };

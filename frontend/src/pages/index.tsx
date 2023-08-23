@@ -11,12 +11,14 @@ import { getAllProduct } from "@/store/slices/addProductSlice";
 import { getAllCategories } from "@/store/slices/getCategories";
 
 export default function Home({ data }: any) {
-  const { datas } = useSelector((state: RootState) => state.addProduct);
+  const { datas, getData } = useSelector(
+    (state: RootState) => state.addProduct
+  );
   const { category } = useSelector((state: RootState) => state.getCategories);
   const [login, setLogin] = useState(false);
 
   const dispatch = AppDispatch();
-  useLayoutEffect(() => {
+  useEffect(() => {
     dispatch(getAllProduct());
     dispatch(getAllCategories());
   }, []);
@@ -27,17 +29,17 @@ export default function Home({ data }: any) {
     } else {
       setLogin(false);
     }
-  }, [login, data]);
-  console.clear();
-  console.log("products", datas);
-  console.log("category list", category);
+  }, [login]);
+
+  console.log("cookie", Cookies.get("login"));
+
   return (
     <>
       {login ? (
         <Layout>
           <main className="p-5 flex items-start">
             <FilterSidebar category={category} />
-            <Card data={datas} />
+            <Card data={getData} />
           </main>
         </Layout>
       ) : (

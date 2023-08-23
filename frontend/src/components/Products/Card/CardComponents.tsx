@@ -7,7 +7,7 @@ import { addBasket } from "@/store/slices/addBasketSlice";
 
 const CardComponents: React.FC<CardProps> = ({ item }) => {
   const dispatch = AppDispatch();
-  const [hover, setHover] = useState("none");
+  const [hover, setHover] = useState("hidden");
 
   const basket = () => {
     dispatch(addBasket({ ...item, quantity: 1 }));
@@ -17,18 +17,15 @@ const CardComponents: React.FC<CardProps> = ({ item }) => {
     <div
       className={Style.card}
       key={item?._id}
-      onMouseEnter={() => setHover("flex")}
-      onMouseLeave={() => setHover("none")}
+      onMouseEnter={() => setHover("visible")}
+      onMouseLeave={() => setHover("hidden")}
     >
       <figure className={Style.figure}>
         <img src={item.image} alt={item.title} />
       </figure>
       <h2 className={Style.title}>{item.title}</h2>
       <p className={Style.price}>{item.price}</p>
-      <div
-        className="my-2 w-full ease-in-out duration-300"
-        style={{ display: hover }}
-      >
+      <div className="my-2 w-full" style={{ visibility: hover as any }}>
         <Button title="Add To Card" onClick={basket} bgColor="#fb8233" />
       </div>
     </div>

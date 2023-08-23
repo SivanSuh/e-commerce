@@ -11,19 +11,21 @@ const Button: FC<ButtonProps> = ({
   type = "button",
   onClick,
   bgColor = "black",
+  color = "white",
 }) => {
   return (
     <>
       {link ? (
         <Link
           href={href as string}
+          style={{ color: color }}
           className={background ? Style.bgNone : Style.button}
         >
           {title}
         </Link>
       ) : (
         <button
-          style={{ backgroundColor: bgColor }}
+          style={{ backgroundColor: bgColor, color: color }}
           className={Style.button}
           type={type}
           onClick={onClick}

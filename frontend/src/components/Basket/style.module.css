@@ -1,9 +1,21 @@
 .basket {
-    @apply  gap-5  flex  border items-center m-5 p-2
+    @apply  gap-5  flex  border items-center  p-2 justify-between 
 } 
 .container {
-    @apply max-w-7xl mx-auto
+    @apply max-w-7xl mx-auto flex items-start m-5 p-5 justify-between
 }
 .counter{
-    @apply flex items-center
+    @apply flex items-center pt-5
+}
+.buttonContainer{
+    @apply mx-3
+}
+.aside {
+    @apply border rounded-md  p-5
+}
+.total {
+    @apply text-xl
+}
+.price {
+    @apply text-center py-3 font-bold
 }

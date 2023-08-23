@@ -1,5 +1,5 @@
 .nav {
-    @apply h-20 w-full flex items-center  bg-[#1b6393] py-3
+    @apply h-20 w-full flex items-center  bg-[#1b6393] py-3 sticky top-0 z-30
 }
 .container {
     @apply max-w-7xl mx-auto flex items-center justify-between  w-full px-2 text-white

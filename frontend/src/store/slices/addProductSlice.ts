@@ -4,11 +4,13 @@ import productService from "@/service/productService";
 import CategoryModel from "@/modelsType/ProductCard";
 
 interface AddProductProps{
-    datas:ProductCardModel | null | unknown | CategoryModel
+    datas:ProductCardModel | null | unknown 
+    getData:Array<CategoryModel>
 }
 
 const initialState:AddProductProps = {
-    datas:[]
+    datas:[],
+    getData:[]
 }
 
 export const AddNewProducts = createAsyncThunk("add-new-products", async (data:ProductCardModel, { rejectWithValue}) => {
@@ -38,7 +40,7 @@ const addProductSlice = createSlice({
             state.datas = action.payload
         })
         builder.addCase(getAllProduct.fulfilled,(state,action) => {
-            state.datas = action.payload?.data
+            state.getData = action.payload?.data
         })
     }
 })

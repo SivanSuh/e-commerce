@@ -5,5 +5,6 @@ export default interface ButtonProps {
   background?: boolean;
   type?: "submit" | "button";
   onClick?: () => void;
-  bgColor?:"#fb8233" | "black"
+  bgColor?:"#fb8233" | "black" |"white"
+  color?:"white" | "black"
 }
