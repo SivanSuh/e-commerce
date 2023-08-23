@@ -27,9 +27,9 @@ export default function Home() {
 
   const refreshState = Cookies.get("login");
   useEffect(() => {
-    if (Cookies.get("login")) {
+    if (refreshState) {
       setLogin(true);
-      // login(refreshState);
+      dispatch(login(JSON.parse(refreshState)));
     } else {
       setLogin(false);
     }

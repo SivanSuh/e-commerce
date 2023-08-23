@@ -31,11 +31,16 @@ const addBasketSlice = createSlice({
         (item) => item._id === action.payload._id
       );
 
-      console.log("silme ", findCardItem.quantity);
-      findCardItem.quantity = findCardItem.quantity - 1;
-      if (findCardItem.quantity === 0) {
-        state.cardItem.splice(findCardItem.quantity,1)
-      }
+     // console.log("silme ", findCardItem.quantity);
+      if (findCardItem.quantity >= 1) {
+          findCardItem.quantity = findCardItem.quantity - 1;
+        //state.cardItem.splice(findCardItem.quantity,1)
+        if(findCardItem.quantity === 0){
+            state.cardItem.filter((ites => ites._id !== action.payload._id))
+        }
+      }; 
+   
+     
     },
   },
 });

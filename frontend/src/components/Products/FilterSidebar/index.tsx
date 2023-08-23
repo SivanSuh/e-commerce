@@ -10,7 +10,7 @@ interface FilterSidebarProps {
 const FilterSidebar: React.FC<FilterSidebarProps> = ({ category }) => {
   console.log("item", category);
   return (
-    <main>
+    <main className="sticky top-20">
       <h2 className="mb-3 font-bold">CATEGORY</h2>
       {category?.map((item: CategoryModel) => (
         <Checkbox title={item?.categoryName} key={item?._id} />

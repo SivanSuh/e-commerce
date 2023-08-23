@@ -38,6 +38,7 @@ const authSlice = createSlice({
         builder.addCase(login.fulfilled,(state,action) => {
             //state.isLoggin = true
             state.formData = action.payload?.data
+            //cookies.set("login",JSON.stringify(action.payload.data))
         })
         builder.addCase(login.pending,(state,action) => {
             state.loading = true

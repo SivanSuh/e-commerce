@@ -30,6 +30,13 @@ const Navbar = () => {
             <h2 className="mx-2 whitespace-nowrap">
               {formData?.user?.userName}
             </h2>
+            <div className={Style.imageContainer}>
+              <img
+                src={formData.user.image}
+                alt={formData.user.userName}
+                className="w-full h-full rounded-full"
+              />
+            </div>
             <Button title="Çıkış Yap" link href="/auth/login" />
           </div>
         ) : (

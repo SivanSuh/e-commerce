@@ -10,3 +10,6 @@
 .basket {
     @apply relative 
 }
+.imageContainer{
+    @apply min-w-[50px] h-10 rounded-full
+}

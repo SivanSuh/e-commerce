@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import Style from "./style.module.css";
 import Button from "../Atoms/Button";
 import BasketCard from "./BasketCard";
-import { removeBasket } from "@/store/slices/addBasketSlice";
+import { addBasket, removeBasket } from "@/store/slices/addBasketSlice";
 
 const Basket = () => {
   const { cardItem } = useSelector((state: RootState) => state.basket);
@@ -33,11 +33,18 @@ const Basket = () => {
                       color="black"
                       bgColor="white"
                       onClick={() => {
-                        dispatch(removeBasket({ ...item, quantity: -1 }));
+                        dispatch(removeBasket(item));
                       }}
                     />
                     <span className="mx-3">{item.quantity}</span>
-                    <Button title="+" color="black" bgColor="white" />
+                    <Button
+                      title="+"
+                      color="black"
+                      bgColor="white"
+                      onClick={() => {
+                        dispatch(addBasket(item));
+                      }}
+                    />
                   </div>
                 </div>
               </div>
