@@ -32,8 +32,8 @@ const Navbar = () => {
             </h2>
             <div className={Style.imageContainer}>
               <img
-                src={formData.user.image}
-                alt={formData.user.userName}
+                src={formData?.user?.image}
+                alt={formData?.user?.userName}
                 className="w-full h-full rounded-full"
               />
             </div>
