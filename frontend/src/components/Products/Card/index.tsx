@@ -1,8 +1,6 @@
 import React, { FC, useState } from "react";
 import Style from "./style.module.css";
 import ProductCard from "@/modelsType/ProductCard";
-import { SlBasket } from "react-icons/sl";
-
 import PopupModal from "@/components/PopupModal";
 import NewProduct from "../NewProduct";
 import CardComponents from "./CardComponents";

@@ -7,6 +7,12 @@ const addProducts = async (data) => {
     data,
   });
 };
+const selectProduct = async (id) => {
+  return api({
+    url: `/products/add-products/${id}`,
+    method: "GET",
+  });
+};
 const getProducts = async () => {
   return api({
     url: "/products/all-products",
@@ -22,6 +28,7 @@ const getAllCategory = async () => {
 const productService = {
   addProducts,
   getProducts,
+  selectProduct,
   getAllCategory,
 };
 

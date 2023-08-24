@@ -30,6 +30,14 @@ export const getAllProduct = createAsyncThunk("get-products", async () => {
         return console.log(error)
     }
 } )
+export const getSelectProduct = createAsyncThunk("select-products", async (id:string) => {
+    try {
+        const res = await productService.selectProduct(id)
+        return res
+    } catch (error) {
+        return console.log(error)
+    }
+} )
 
 const addProductSlice = createSlice({
     name:"add-product",
@@ -40,6 +48,9 @@ const addProductSlice = createSlice({
             state.datas = action.payload
         })
         builder.addCase(getAllProduct.fulfilled,(state,action) => {
+            state.getData = action.payload?.data
+        })
+        builder.addCase(getSelectProduct.fulfilled,(state,action) => {
             state.getData = action.payload?.data
         })
     }

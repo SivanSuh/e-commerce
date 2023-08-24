@@ -4,18 +4,28 @@ import CardProps from "./props";
 import Button from "@/components/Atoms/Button";
 import { AppDispatch } from "@/store/store";
 import { addBasket } from "@/store/slices/addBasketSlice";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 const CardComponents: React.FC<CardProps> = ({ item }) => {
   const dispatch = AppDispatch();
   const [hover, setHover] = useState("hidden");
+  const router = useRouter();
 
   const basket = () => {
     dispatch(addBasket({ ...item, quantity: 1 }));
   };
 
+  const handleClick = (e: any) => {
+    console.log("tıklandı", e);
+  };
+
   return (
     <div
       className={Style.card}
+      onClick={() => {
+        router.push(`/products/${item.slug}?id=${item?._id}`);
+      }}
       key={item?._id}
       onMouseEnter={() => setHover("visible")}
       onMouseLeave={() => setHover("hidden")}

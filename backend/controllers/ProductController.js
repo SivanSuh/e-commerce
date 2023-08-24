@@ -10,6 +10,16 @@ const getCategory = async (req, res) => {
   }
 };
 
+const selectProduct = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const selected = await ProductModel.findById(id);
+    res.status(200).json(selected);
+  } catch (error) {
+    res.status(500).json({ message: error });
+  }
+};
+
 const addProducts = async (req, res) => {
   try {
     const { title, price, image, category } = req.body;
@@ -41,4 +51,5 @@ module.exports = {
   addProducts,
   getAllProducts,
   getCategory,
+  selectProduct,
 };
