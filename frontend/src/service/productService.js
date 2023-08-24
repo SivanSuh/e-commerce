@@ -9,7 +9,7 @@ const addProducts = async (data) => {
 };
 const selectProduct = async (id) => {
   return api({
-    url: `/products/add-products/${id}`,
+    url: `/products/all-products/${id}`,
     method: "GET",
   });
 };

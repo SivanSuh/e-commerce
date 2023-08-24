@@ -1,16 +1,18 @@
 import Input from "@/components/Atoms/Input";
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import Style from "./style.module.css";
 import SelectBox from "@/components/Atoms/Select";
 import Button from "@/components/Atoms/Button";
-import { AppDispatch } from "@/store/store";
+import { AppDispatch, RootState } from "@/store/store";
 import { AddNewProducts } from "@/store/slices/addProductSlice";
 import NewProductProps from "./props";
 import FileUpload from "@/components/Atoms/FileUpload";
+import { useSelector } from "react-redux";
 
 const NewProduct: FC<NewProductProps> = ({ setOpenModal }) => {
   const [file, setFile] = useState<File | null>(null);
+  const { category } = useSelector((state: RootState) => state.getCategories);
   const { register, handleSubmit } = useForm();
   const dispatch = AppDispatch();
 
@@ -20,9 +22,9 @@ const NewProduct: FC<NewProductProps> = ({ setOpenModal }) => {
     setOpenModal?.(false);
   };
 
-  // const handleFileUpload = (file: any) => {
-  //   console.log("Uploaded file:", file);
-  // };
+  useEffect(() => {}, [dispatch]);
+  console.log("form categori", category);
+  const formCategory = category?.map((item) => item.categoryName);
   return (
     <form className={Style.form} onSubmit={handleSubmit(onSubmit)}>
       <Input
@@ -51,7 +53,7 @@ const NewProduct: FC<NewProductProps> = ({ setOpenModal }) => {
         onFileSelect={handleFileUpload}
       /> */}
       <SelectBox
-        data={["tsort", "jacket", "accessory"]}
+        data={formCategory}
         register={register}
         id="category"
         name="category"

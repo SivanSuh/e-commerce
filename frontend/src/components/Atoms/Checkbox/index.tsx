@@ -3,12 +3,13 @@ import Style from "./style.module.css";
 
 interface ChackboxProps {
   title: string;
+  onClick: () => void;
 }
 
-const Checkbox: FC<ChackboxProps> = ({ title }) => {
+const Checkbox: FC<ChackboxProps> = ({ title, onClick }) => {
   return (
     <label className={Style.label}>
-      <input type="checkbox" className={Style.checkbox} />
+      <input type="checkbox" className={Style.checkbox} onChange={onClick} />
       <span className="mx-3">{title}</span>
     </label>
   );
