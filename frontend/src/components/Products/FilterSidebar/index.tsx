@@ -1,18 +1,32 @@
 import Checkbox from "@/components/Atoms/Checkbox";
 import CategoryModel from "@/modelsType/CategoryModel";
-import ProductCard from "@/modelsType/ProductCard";
-import React from "react";
+import { getAllCategories } from "@/store/slices/getCategories";
+import { AppDispatch, RootState } from "@/store/store";
+import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
 
 interface FilterSidebarProps {
-  category: [];
+  setCategories: (item: string) => void;
 }
 
-const FilterSidebar: React.FC<FilterSidebarProps> = ({ category }) => {
+const FilterSidebar: React.FC<FilterSidebarProps> = ({ setCategories }) => {
+  const { category } = useSelector((state: RootState) => state.getCategories);
+
+  const dispatch = AppDispatch();
+
+  useEffect(() => {
+    dispatch(getAllCategories());
+  }, [dispatch]);
+
   return (
     <main className="sticky top-20">
       <h2 className="mb-3 font-bold">CATEGORY</h2>
       {category?.map((item: CategoryModel) => (
-        <Checkbox title={item?.categoryName} key={item?._id} />
+        <Checkbox
+          title={item?.categoryName}
+          key={item?._id}
+          onClick={() => setCategories(item.categoryName)}
+        />
       ))}
     </main>
   );

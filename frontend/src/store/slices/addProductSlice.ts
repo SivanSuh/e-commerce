@@ -2,15 +2,18 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import ProductCardModel from "@/modelsType/ProductCard"
 import productService from "@/service/productService";
 import CategoryModel from "@/modelsType/ProductCard";
+import { STATUS } from "@/utils/status"
 
 interface AddProductProps{
     datas:ProductCardModel | null | unknown 
     getData:Array<CategoryModel>
+    status:any
 }
 
 const initialState:AddProductProps = {
     datas:[],
-    getData:[]
+    getData:[],
+    status:STATUS.IDLE
 }
 
 export const AddNewProducts = createAsyncThunk("add-new-products", async (data:ProductCardModel, { rejectWithValue}) => {
@@ -48,7 +51,14 @@ const addProductSlice = createSlice({
             state.datas = action.payload
         })
         builder.addCase(getAllProduct.fulfilled,(state,action) => {
+            state.status =STATUS.SUCCESS
             state.getData = action.payload?.data
+        })
+        builder.addCase(getAllProduct.pending,(state,action) => {
+            state.status = STATUS.LOADIN
+        })
+        builder.addCase(getAllProduct.rejected,(state,action) => {
+            state.status = STATUS.FAIL
         })
         builder.addCase(getSelectProduct.fulfilled,(state,action) => {
             state.getData = action.payload?.data

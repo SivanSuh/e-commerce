@@ -23,10 +23,8 @@ const CardComponents: React.FC<CardProps> = ({ item }) => {
   return (
     <div
       className={Style.card}
-      onClick={() => {
-        router.push(`/products/${item.slug}?id=${item?._id}`);
-      }}
       key={item?._id}
+      onClick={() => router.push(`/products/${item?._id}`)}
       onMouseEnter={() => setHover("visible")}
       onMouseLeave={() => setHover("hidden")}
     >
