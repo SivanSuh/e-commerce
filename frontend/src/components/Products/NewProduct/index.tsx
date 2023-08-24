@@ -56,7 +56,7 @@ const NewProduct: FC<NewProductProps> = ({ setOpenModal }) => {
         title="Resim Ekleyiniz"
         id="image"
         name="image"
-        onFileSelect={handleFileUpload}
+        //onFileSelect={handleFileUpload}
       /> */}
       <SelectBox
         data={formCategory}
