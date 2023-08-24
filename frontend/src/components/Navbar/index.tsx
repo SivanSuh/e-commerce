@@ -9,8 +9,7 @@ import Link from "next/link";
 const Navbar = () => {
   const { formData } = useSelector((state: RootState) => state.auth);
   const { cardItem } = useSelector((state: RootState) => state.basket);
-  console.log("form data", formData);
-  console.log("card Item", cardItem);
+
   return (
     <nav className={Style.nav}>
       <div className={Style.container}>

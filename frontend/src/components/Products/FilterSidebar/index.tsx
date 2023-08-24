@@ -8,7 +8,6 @@ interface FilterSidebarProps {
 }
 
 const FilterSidebar: React.FC<FilterSidebarProps> = ({ category }) => {
-  console.log("item", category);
   return (
     <main className="sticky top-20">
       <h2 className="mb-3 font-bold">CATEGORY</h2>

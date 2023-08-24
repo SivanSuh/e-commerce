@@ -15,8 +15,6 @@ interface CardProps {
 const Card: FC<CardProps> = ({ data }) => {
   const [openModal, setOpenModal] = useState<boolean>(false);
 
-  console.log("card data", data);
-
   return (
     <template className={Style.column}>
       <div className={Style.newProduct}>

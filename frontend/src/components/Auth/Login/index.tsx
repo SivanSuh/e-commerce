@@ -27,19 +27,13 @@ const Login = () => {
   const router = useRouter();
 
   const onSubmit: SubmitHandler<FieldValues> = async (data: any) => {
-    console.log("data", data);
     await dispatch(login(data))
       .unwrap()
       .then(() => {
         router.push("/");
-        // nookies.set(data, "login", data, {
-        //   maxAge: 30 * 24 * 60 * 60,
-        //   path: "/",
-        // });
       });
   };
 
-  console.log("errr", error);
   return (
     <form className={Style.form} onSubmit={handleSubmit(onSubmit)}>
       <h2 className={Style.title}>Login Page</h2>
