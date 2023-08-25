@@ -12,19 +12,21 @@ const CardComponents: React.FC<CardProps> = ({ item }) => {
   const [hover, setHover] = useState("hidden");
   const router = useRouter();
 
-  const basket = () => {
+  const basket = (e: any) => {
+    e.stopPropagation();
     dispatch(addBasket({ ...item, quantity: 1 }));
   };
 
   const handleClick = (e: any) => {
-    console.log("tıklandı", e);
+    e.stopPropagation();
+    router.push(`/products/${item?._id}`);
   };
 
   return (
     <div
       className={Style.card}
       key={item?._id}
-      onClick={() => router.push(`/products/${item?._id}`)}
+      onClick={handleClick}
       onMouseEnter={() => setHover("visible")}
       onMouseLeave={() => setHover("hidden")}
     >

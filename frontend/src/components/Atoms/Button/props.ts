@@ -4,7 +4,7 @@ export default interface ButtonProps {
   href?: string;
   background?: boolean;
   type?: "submit" | "button";
-  onClick?: () => void;
+  onClick?: (e:any) => void;
   bgColor?:"#fb8233" | "black" |"white"
   color?:"white" | "black"
 }
