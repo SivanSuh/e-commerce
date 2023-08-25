@@ -25,11 +25,18 @@ const getAllCategory = async () => {
     method: "GET",
   });
 };
+const selectCategory = async (id) => {
+  return api({
+    url: `products/select-category/${id}`,
+    method: "GET",
+  });
+};
 const productService = {
   addProducts,
   getProducts,
   selectProduct,
   getAllCategory,
+  selectCategory,
 };
 
 export default productService;

@@ -11,7 +11,11 @@ export const store = configureStore({
         addProduct:addProductSlice,
         getCategories:getCategories,
         basket:addBasketSlice
-    }
+    },
+    middleware:(getDefaultMiddleware) => 
+        getDefaultMiddleware({
+            serializableCheck:false
+        })
 })
 
 

@@ -12,7 +12,7 @@ export const getAllCategories = createAsyncThunk("get-all-categories", async () 
 })
 
 interface CategoryType {
-    category:CategoryModel | Array<any>;
+    category:CategoryModel[];
     isLoading:boolean
     error:string
 }

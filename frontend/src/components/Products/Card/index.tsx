@@ -7,7 +7,10 @@ import CardComponents from "./CardComponents";
 import Button from "@/components/Atoms/Button";
 import { AppDispatch, RootState } from "@/store/store";
 import { useSelector } from "react-redux";
-import { getAllProduct } from "@/store/slices/addProductSlice";
+import {
+  getAllProduct,
+  selectCategories,
+} from "@/store/slices/addProductSlice";
 import Loading from "@/components/Loading";
 
 interface CardProps {
@@ -24,7 +27,7 @@ const Card: React.FC<CardProps> = ({ categories }) => {
 
   useEffect(() => {
     if (categories) {
-      dispatch(getAllProduct());
+      dispatch(selectCategories(categories));
     } else {
       dispatch(getAllProduct());
     }

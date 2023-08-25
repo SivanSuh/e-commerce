@@ -18,6 +18,8 @@ const FilterSidebar: React.FC<FilterSidebarProps> = ({ setCategories }) => {
     dispatch(getAllCategories());
   }, [dispatch]);
 
+  console.log("catefory,", category);
+  console.log("set ler ,", setCategories);
   return (
     <main className="sticky top-20">
       <h2 className="mb-3 font-bold">CATEGORY</h2>
@@ -25,7 +27,7 @@ const FilterSidebar: React.FC<FilterSidebarProps> = ({ setCategories }) => {
         <Checkbox
           title={item?.categoryName}
           key={item?._id}
-          onClick={() => setCategories(item.categoryName)}
+          onClick={() => setCategories(item._id)}
         />
       ))}
     </main>

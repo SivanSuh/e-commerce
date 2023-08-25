@@ -23,6 +23,7 @@ export default function Home() {
     }
   }, [logins]);
 
+  console.log("set değişti", setCategories);
   return (
     <>
       {logins ? (
