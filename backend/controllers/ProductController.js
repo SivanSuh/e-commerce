@@ -13,7 +13,7 @@ const getCategory = async (req, res) => {
 const selectCategory = async (req, res) => {
   const { id } = req.params;
   try {
-    const select = await CategoryModels.findById(id);
+    const select = await ProductModel.find({ category: id });
     res.status(200).json(select);
   } catch (error) {
     res.status(500).json(error);
