@@ -1,12 +1,12 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import ProductCardModel from "@/modelsType/ProductCard"
 import productService from "@/service/productService";
-import CategoryModel from "@/modelsType/ProductCard";
+import CategoryModels  from "@/modelsType/ProductCard";
 import { STATUS } from "@/utils/status"
 
 interface AddProductProps{
-    datas:ProductCardModel | null | unknown 
-    getData:CategoryModel[]
+    datas: CategoryModels[]
+    getData:CategoryModels[]
     status:any
 }
 
@@ -70,7 +70,7 @@ const addProductSlice = createSlice({
             state.status = STATUS.FAIL
         })
         builder.addCase(getSelectProduct.fulfilled,(state,action) => {
-            state.getData = action.payload?.data
+            state.datas = action.payload?.data
         })
 
         builder.addCase(selectCategories.fulfilled,(state,action) => {

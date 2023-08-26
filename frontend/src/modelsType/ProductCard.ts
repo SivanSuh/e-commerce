@@ -1,4 +1,4 @@
-export default interface CategoryModel {
+export default interface CategoryModels {
     _id: string;
     categoryName: string;
 }
@@ -7,5 +7,5 @@ export default interface ProductCard {
     image:string;
     price:string;
     title:string;
-    category:CategoryModel
+    category:CategoryModels
 }

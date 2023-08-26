@@ -10,16 +10,16 @@ export default function Page() {
   const router = useRouter();
   const { slug } = router.query;
   const dispatch = AppDispatch();
-  const { getData } = useSelector((state: RootState) => state.addProduct);
+  const { datas } = useSelector((state: RootState) => state.addProduct);
 
   useEffect(() => {
     dispatch(getSelectProduct(slug as string));
   }, [dispatch, slug]);
-  console.log("get  select datra", getData);
+  console.log("get  select datra", datas);
   console.log("get  select slug", slug);
   return (
     <Layout>
-      <ProductDetail detail={getData} />
+      <ProductDetail detail={datas} />
     </Layout>
   );
 }
