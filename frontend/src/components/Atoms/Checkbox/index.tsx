@@ -9,7 +9,7 @@ interface ChackboxProps {
 const Checkbox: FC<ChackboxProps> = ({ title, onClick }) => {
   return (
     <label className={Style.label}>
-      <input type="checkbox" className={Style.checkbox} onChange={onClick} />
+      <input type="checkbox" className={Style.checkbox} onClick={onClick} />
       <span className="mx-3">{title}</span>
     </label>
   );
