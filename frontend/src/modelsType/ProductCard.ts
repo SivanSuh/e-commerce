@@ -8,4 +8,5 @@ export default interface ProductCard {
     price:string;
     title:string;
     category:CategoryModels
+    description:string
 }

@@ -8,7 +8,7 @@ import LoginPage from "./auth/login";
 import { AppDispatch } from "@/store/store";
 import { login } from "@/store/slices/authSlice";
 
-export default function Home() {
+function Home() {
   const [logins, setLogin] = useState(false);
   const [categories, setCategories] = useState("");
   const dispatch = AppDispatch();
@@ -39,6 +39,8 @@ export default function Home() {
     </>
   );
 }
+
+export default Home;
 
 export async function getServerSideProps() {
   const res = await service.getProducts();

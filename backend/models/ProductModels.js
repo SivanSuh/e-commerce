@@ -19,6 +19,10 @@ const ProductModels = new Schema(
       ref: "Category",
       required: true,
     },
+    description: {
+      type: String,
+      required: true,
+    },
   },
   { timestamps: true }
 );

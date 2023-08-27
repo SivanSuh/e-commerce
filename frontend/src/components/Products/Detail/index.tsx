@@ -19,6 +19,7 @@ const ProductDetail: React.FC<ProductDetailProp> = ({ detail }) => {
         <div className={Style.description}>
           <p className={Style.title}>{detail.title}</p>
           <p>{detail.price} TL</p>
+          <p>{detail.description}</p>
           <div className={Style.counter}>
             <Button
               title="-"

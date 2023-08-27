@@ -15,7 +15,7 @@ export const login = createAsyncThunk("login",async (body:LoginModel, {rejectWit
 } )
 
 interface AuthProps {
-    formData:RegisterModel | null |unknown
+    formData:RegisterModel | null | unknown
     loading:boolean
     error:any
     isLoggin:boolean
@@ -38,6 +38,7 @@ const authSlice = createSlice({
         builder.addCase(login.fulfilled,(state,action) => {
             //state.isLoggin = true
             state.formData = action.payload?.data
+            console.log("form daraasadas",state.formData)
             //cookies.set("login",JSON.stringify(action.payload.data))
         })
         builder.addCase(login.pending,(state,action) => {

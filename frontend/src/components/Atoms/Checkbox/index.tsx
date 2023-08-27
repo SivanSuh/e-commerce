@@ -4,7 +4,7 @@ import Style from "./style.module.css";
 interface ChackboxProps {
   title: string;
   onClick: () => void;
-  //checked: string;
+  // checked: string;
   name: string;
 }
 

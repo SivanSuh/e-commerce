@@ -1,9 +1,9 @@
 .cardContainer {
-    @apply flex flex-wrap gap-8 
+    @apply flex flex-wrap gap-8 justify-start
 }
 
 .card {
-    @apply  border-[0.25px] rounded-md h-96  flex flex-col items-center justify-center p-1 w-60 
+    @apply  border-[0.25px] rounded-md h-80  flex flex-col items-center justify-center p-1 w-60 
 }
 .title {
     @apply my-2
@@ -18,7 +18,7 @@
     @apply absolute 
 }
 .column{
-    @apply flex flex-col items-end
+    @apply flex flex-col items-start w-full
 }
 .newProduct {
     @apply w-40 flex justify-end text-end items-center my-2

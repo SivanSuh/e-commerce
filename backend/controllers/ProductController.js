@@ -31,7 +31,7 @@ const selectProduct = async (req, res) => {
 
 const addProducts = async (req, res) => {
   try {
-    const { title, price, image, category } = req.body;
+    const { title, price, image, category, description } = req.body;
     const cate = await CategoryModels.findOne({
       categoryName: category,
     });
@@ -42,6 +42,7 @@ const addProducts = async (req, res) => {
       price: price,
       image: image,
       category: cate,
+      description: description,
     });
     if (products) return res.send(products);
     else return res.json({ msg: "failed products" });

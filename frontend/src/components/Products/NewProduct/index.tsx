@@ -41,6 +41,12 @@ const NewProduct: FC<NewProductProps> = ({ setOpenModal }) => {
       />
       <Input
         register={register}
+        id="description"
+        name="description"
+        placeholder="Ürün Açıklaması"
+      />
+      <Input
+        register={register}
         id="image"
         name="image"
         placeholder="Ürün Fotoğrafının yolunu ekleyiniz"

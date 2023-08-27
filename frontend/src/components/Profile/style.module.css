@@ -1,0 +1,6 @@
+.main {
+    @apply flex items-center flex-col  my-5 max-w-7xl mx-auto
+}
+.company {
+    @apply text-yellow-600
+}
