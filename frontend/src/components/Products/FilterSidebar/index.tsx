@@ -25,9 +25,11 @@ const FilterSidebar: React.FC<FilterSidebarProps> = ({ setCategories }) => {
       <h2 className="mb-3 font-bold">CATEGORY</h2>
       {category?.map((item: CategoryModel) => (
         <Checkbox
+          //checked={item?.categoryName}
           title={item?.categoryName}
           key={item?._id}
-          onClick={() => setCategories(item._id)}
+          name={item?.categoryName}
+          onClick={() => setCategories(item?._id)}
         />
       ))}
     </main>
