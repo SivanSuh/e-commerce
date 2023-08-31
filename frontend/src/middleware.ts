@@ -1,15 +1,11 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from 'next/server'
-import { isAuth } from "@/lib/auth"
 
 export function middleware(request:NextRequest){
 
-    const allCookies = request.cookies.getAll();
-    if(!isAuth(request.cookies)){
-        return NextResponse.redirect(new URL("/login",request.url))
+    let allCookies = request.cookies.get("login");
+    let url = request.url;
+    if(!allCookies && url.includes("/profile")){
+        return NextResponse.redirect("/auth/login")
     }
-}
-
-export const config = {
-    matcher:"/login/:path*"
 }

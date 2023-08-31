@@ -7,11 +7,13 @@ import Cookies from "js-cookie";
 import LoginPage from "./auth/login";
 import { AppDispatch } from "@/store/store";
 import { login } from "@/store/slices/authSlice";
+import { useRouter } from "next/router";
 
 function Home() {
   const [logins, setLogin] = useState(false);
   const [categories, setCategories] = useState("");
   const dispatch = AppDispatch();
+  const router = useRouter();
 
   const refreshState = Cookies.get("login");
   useEffect(() => {
@@ -20,6 +22,7 @@ function Home() {
       dispatch(login(JSON.parse(refreshState)));
     } else {
       setLogin(false);
+      router.push("/auth/login");
     }
   }, [logins]);
 

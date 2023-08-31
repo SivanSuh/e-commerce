@@ -10,7 +10,7 @@ const ProductDetail: React.FC<ProductDetailProp> = ({ detail }) => {
 
   const dispatch = AppDispatch();
   return (
-    <>
+    <main className={Style.container}>
       <Link href="/">Geri Dön</Link>
       <main className={Style.details}>
         <div className={Style.image}>
@@ -41,7 +41,7 @@ const ProductDetail: React.FC<ProductDetailProp> = ({ detail }) => {
           </div>
         </div>
       </main>
-    </>
+    </main>
   );
 };
 

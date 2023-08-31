@@ -5,8 +5,11 @@
     @apply flex  items-start max-w-7xl mx-auto my-5
 }
 .description {
-    @apply m-10
+    @apply mx-10
 }
 .title {
-    @apply text-2xl font-bold
+    @apply text-3xl font-bold uppercase
+}
+.container {
+    @apply mx-auto max-w-7xl p-10
 }
