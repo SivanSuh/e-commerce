@@ -30,7 +30,7 @@ const AuthModels = new Schema(
 
 AuthModels.statics.login = async function (email, password) {
   if ((!email, !password)) {
-    throw Error(" Alanları boş geçilemez");
+    throw Error("Alanları boş geçilemez");
   }
   const user = await this.findOne({ email });
   if (!user) {

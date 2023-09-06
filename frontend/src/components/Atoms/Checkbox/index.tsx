@@ -1,12 +1,6 @@
 import React, { FC } from "react";
 import Style from "./style.module.css";
-
-interface ChackboxProps {
-  title: string;
-  onClick: () => void;
-  // checked: string;
-  name: string;
-}
+import ChackboxProps from "./props";
 
 const Checkbox: FC<ChackboxProps> = ({ title, onClick, name }) => {
   return (
@@ -14,7 +8,8 @@ const Checkbox: FC<ChackboxProps> = ({ title, onClick, name }) => {
       <input
         type="checkbox"
         className={Style.checkbox}
-        //checked={checked}
+        // checked={checked}
+        name={name}
         onChange={onClick}
         value={name}
       />

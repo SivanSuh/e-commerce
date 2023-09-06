@@ -20,12 +20,13 @@ const FilterSidebar: React.FC<FilterSidebarProps> = ({ setCategories }) => {
 
   console.log("catefory,", category);
   console.log("set ler ,", setCategories);
+
   return (
     <main className="sticky top-20">
       <h2 className="mb-3 font-bold">CATEGORY</h2>
       {category?.map((item: CategoryModel) => (
         <Checkbox
-          //checked={item?.categoryName}
+          //checked={item?.categoryName ? true : false}
           title={item?.categoryName}
           key={item?._id}
           name={item?.categoryName}

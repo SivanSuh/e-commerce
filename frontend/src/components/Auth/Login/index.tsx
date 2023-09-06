@@ -1,20 +1,17 @@
 import Button from "@/components/Atoms/Button";
 import Input from "@/components/Atoms/Input";
-import React, { useEffect, useLayoutEffect } from "react";
+import React from "react";
 import Style from "./style.module.css";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
-import LoginModel from "@/modelsType/LoginModel";
 import { login } from "@/store/slices/authSlice";
 import { AppDispatch, RootState } from "@/store/store";
 import { useSelector } from "react-redux";
 import { useRouter } from "next/router";
-import cookies from "js-cookie";
 
 const Login = () => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm<FieldValues>({
     defaultValues: {

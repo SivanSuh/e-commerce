@@ -16,7 +16,7 @@ const Navbar = () => {
         <Link href="/">
           <h1>E-Commerce</h1>
         </Link>
-        {formData ? (
+        {formData?.user ? (
           <div className={Style.login}>
             <Link href="/basket">
               <div className={Style.basket}>
