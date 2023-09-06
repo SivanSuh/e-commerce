@@ -13,3 +13,6 @@
 .container {
     @apply mx-auto max-w-7xl p-10
 }
+.counter {
+    @apply flex my-5 gap-2 w-fit
+}

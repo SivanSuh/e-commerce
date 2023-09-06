@@ -4,6 +4,7 @@ import Style from "./style.module.css";
 import { AppDispatch } from "@/store/store";
 import { addBasket, removeBasket } from "@/store/slices/addBasketSlice";
 import Link from "next/link";
+import { AiOutlineDoubleLeft } from "react-icons/ai";
 
 const ProductDetail: React.FC<ProductDetailProp> = ({ detail }) => {
   console.log("detail sayfase", detail);
@@ -11,7 +12,9 @@ const ProductDetail: React.FC<ProductDetailProp> = ({ detail }) => {
   const dispatch = AppDispatch();
   return (
     <main className={Style.container}>
-      <Link href="/">Geri Dön</Link>
+      <Link href="/">
+        <AiOutlineDoubleLeft size={25} />
+      </Link>
       <main className={Style.details}>
         <div className={Style.image}>
           <img src={detail.image} alt={detail.title} className="w-full" />

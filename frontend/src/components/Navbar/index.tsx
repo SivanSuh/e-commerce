@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
 import { SlBasket } from "react-icons/sl";
 import Link from "next/link";
+import Image from "next/image";
 
 const Navbar = () => {
   const { formData } = useSelector((state: RootState) => state.auth);
@@ -14,7 +15,7 @@ const Navbar = () => {
     <nav className={Style.nav}>
       <div className={Style.container}>
         <Link href="/">
-          <h1>E-Commerce</h1>
+          <Image src="/logo.jpeg" alt="logo" width={50} height={50} />
         </Link>
         {formData?.user ? (
           <div className={Style.login}>
