@@ -10,7 +10,8 @@ export const login = createAsyncThunk("login",async (body:LoginModel, {rejectWit
         cookies.set("login",JSON.stringify(body))
         return response
     } catch (error) {
-       return rejectWithValue(error?.request?.response)
+        console.log("errr",error)
+       return rejectWithValue(error?.response?.data?.hata)
     }
 } )
 
