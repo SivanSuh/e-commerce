@@ -26,7 +26,7 @@ function Home() {
     }
   }, [logins]);
 
-  console.log("set değişti", setCategories);
+  console.log("seçilen categori", categories);
   return (
     <>
       {logins ? (

@@ -1,16 +1,17 @@
+import React, { Suspense } from "react";
 import Image from "next/image";
-import { createPortal } from "react-dom";
+const Deneme = React.lazy(() => import("@/components/Deneme/index"));
 
 export default function StaticImage({ post }: any) {
   console.log("post", post);
+
   return (
     <ul>
-      {post.map((pos: any) => (
-        <div className="inline-flex gap-3 p-1">
-          <span>{pos.id}</span>
-          <li>{pos.title}</li>
-        </div>
-      ))}
+      <Suspense fallback={<p>Loading...</p>}>
+        <Deneme post={post} />
+      </Suspense>
+      <img src="/e-commerce.png" alt="e commerce" width={200} />
+      <Image src="/e-commerce.png" alt="deneme" width={500} height={100} />
     </ul>
   );
 }

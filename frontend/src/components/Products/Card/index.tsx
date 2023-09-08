@@ -57,4 +57,4 @@ const Card: React.FC<CardProps> = ({ categories }) => {
   );
 };
 
-export default React.memo(Card);
+export default Card;
