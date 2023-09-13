@@ -56,12 +56,12 @@ function Home() {
 
 export default Home;
 
-export async function getServerSideProps() {
-  const res = await service.getProducts();
+// export async function getServerSideProps() {
+//   const res = await service.getProducts();
 
-  return {
-    props: {
-      data: res.data,
-    },
-  };
-}
+//   return {
+//     props: {
+//       data: res.data,
+//     },
+//   };
+// }

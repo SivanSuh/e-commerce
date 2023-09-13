@@ -4,6 +4,7 @@ import Style from "./style.module.css";
 import Button from "../Atoms/Button";
 import BasketCard from "./BasketCard";
 import { addBasket, removeBasket } from "@/store/slices/addBasketSlice";
+import Link from "next/link";
 
 const Basket = () => {
   const { cardItem } = useSelector((state: RootState) => state.basket);
@@ -19,13 +20,13 @@ const Basket = () => {
             return (
               <div className={Style.basket} key={item._id}>
                 <div className="flex">
-                  <figure>
+                  <Link href={`/products/${item?._id}`}>
                     <img
                       src={item.image}
                       alt={item.title}
                       className="h-28 w-40 object-contain"
                     />
-                  </figure>
+                  </Link>
                   <div className={Style.buttonContainer}>
                     <p className="w-40">{item.title}</p>
                     <div className={Style.counter}>
