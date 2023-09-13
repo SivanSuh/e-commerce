@@ -2,13 +2,18 @@ import React, { FC } from "react";
 import Style from "./style.module.css";
 import ChackboxProps from "./props";
 
-const Checkbox: FC<ChackboxProps> = ({ title, onClick, name }) => {
+const Checkbox: FC<ChackboxProps> = ({
+  title,
+  onClick,
+  name,
+  checked = false,
+}) => {
   return (
     <label className={Style.label}>
       <input
         type="checkbox"
         className={Style.checkbox}
-        // checked={checked}
+        checked={checked}
         name={name}
         onChange={onClick}
         value={name}

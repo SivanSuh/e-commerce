@@ -7,9 +7,13 @@ import { useSelector } from "react-redux";
 
 interface FilterSidebarProps {
   setCategories: (item: string) => void;
+  categories: string;
 }
 
-const FilterSidebar: React.FC<FilterSidebarProps> = ({ setCategories }) => {
+const FilterSidebar: React.FC<FilterSidebarProps> = ({
+  setCategories,
+  categories,
+}) => {
   const { category } = useSelector((state: RootState) => state.getCategories);
 
   const dispatch = AppDispatch();
@@ -26,7 +30,7 @@ const FilterSidebar: React.FC<FilterSidebarProps> = ({ setCategories }) => {
       <h2 className="mb-3 font-bold">CATEGORY</h2>
       {category?.map((item: CategoryModel) => (
         <Checkbox
-          //checked={item?.categoryName ? true : false}
+          checked={item?._id === categories}
           title={item?.categoryName}
           key={item?._id}
           name={item?.categoryName}

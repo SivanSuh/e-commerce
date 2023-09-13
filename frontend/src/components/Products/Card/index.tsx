@@ -44,9 +44,15 @@ const Card: React.FC<CardProps> = ({ categories }) => {
         {status == "LOADING" ? (
           <Loading />
         ) : (
-          getData?.map((item: ProductCard) => (
-            <CardComponents item={item} key={item._id} />
-          ))
+          <>
+            {getData.length !== 0 ? (
+              getData?.map((item: ProductCard) => (
+                <CardComponents item={item} key={item._id} />
+              ))
+            ) : (
+              <p>Belirtilen Kategoriye Ait Ürün Yoktur.</p>
+            )}
+          </>
         )}
       </main>
 

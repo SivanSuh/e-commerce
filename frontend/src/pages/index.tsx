@@ -27,12 +27,23 @@ function Home() {
   }, [logins]);
 
   console.log("seçilen categori", categories);
+
+  // const handleChange = (e: any) => {
+  //   // const item = e.target.name;
+  //   const isChecked = e.target.checked;
+  //   console.log("is checkled", isChecked);
+  //   // console.log("nameee", item);
+  // };
   return (
     <>
       {logins ? (
         <Layout>
           <main className="p-5 flex items-start">
-            <FilterSidebar setCategories={setCategories} />
+            <FilterSidebar
+              setCategories={setCategories}
+              categories={categories}
+            />
+
             <Card categories={categories} />
           </main>
         </Layout>
