@@ -24,7 +24,7 @@ function Home() {
       setLogin(false);
       router.push("/auth/login");
     }
-  }, [logins]);
+  }, [logins, dispatch]);
 
   console.log("seçilen categori", categories);
 

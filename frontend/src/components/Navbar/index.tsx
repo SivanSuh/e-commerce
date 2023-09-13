@@ -1,15 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Style from "./style.module.css";
 import Button from "../Atoms/Button";
 import { useSelector } from "react-redux";
-import { RootState } from "@/store/store";
+import { AppDispatch, RootState } from "@/store/store";
 import { SlBasket } from "react-icons/sl";
 import Link from "next/link";
 import Image from "next/image";
+import { logout } from "@/store/slices/authSlice";
+import { useRouter } from "next/router";
 
 const Navbar = () => {
   const { formData } = useSelector((state: RootState) => state.auth);
   const { cardItem } = useSelector((state: RootState) => state.basket);
+
+  const dispatch = AppDispatch();
+  const router = useRouter();
+  useEffect(() => {}, [dispatch]);
 
   return (
     <nav className={Style.nav}>
@@ -39,7 +45,13 @@ const Navbar = () => {
                 />
               </div>
             </Link>
-            <Button title="Çıkış Yap" link href="/auth/login" />
+            <Button
+              title="Çıkış Yap"
+              onClick={() => {
+                dispatch(logout());
+                router.push("/auth/login");
+              }}
+            />
           </div>
         ) : (
           <div className={Style.login}>

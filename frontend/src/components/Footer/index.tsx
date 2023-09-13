@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Style from "./style.module.css";
 import { FooterLinks } from "@/mock";
+import React from "react";
 
 const Footer = () => {
   return (
@@ -10,9 +11,9 @@ const Footer = () => {
         {FooterLinks.map((item) => {
           console.log("items", item);
           return (
-            <>
+            <React.Fragment key={item.title}>
               <span>{item.title}</span>
-            </>
+            </React.Fragment>
           );
         })}
       </div>

@@ -33,6 +33,13 @@ const authSlice = createSlice({
     reducers:{
         removeToken(){
             return
+        },
+        logout:(state) => {
+          
+            cookies.remove("login");
+            state.formData = null;
+            
+
         }
     },
     extraReducers:(builder) => {
@@ -53,5 +60,5 @@ const authSlice = createSlice({
     }
 })
 
-export const { removeToken }  = authSlice.actions
+export const { removeToken, logout }  = authSlice.actions
 export default authSlice.reducer
