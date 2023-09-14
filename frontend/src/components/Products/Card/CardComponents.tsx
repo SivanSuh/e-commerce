@@ -21,8 +21,7 @@ const CardComponents: React.FC<CardProps> = ({ item }) => {
     e.stopPropagation();
     router.push(`/products/${item?._id}`);
   };
-
-  console.log("items", item);
+  console.log("card lar", item);
   return (
     <div
       className={Style.card}
@@ -43,4 +42,4 @@ const CardComponents: React.FC<CardProps> = ({ item }) => {
   );
 };
 
-export default CardComponents;
+export default React.memo(CardComponents);

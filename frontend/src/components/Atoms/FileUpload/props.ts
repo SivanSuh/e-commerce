@@ -8,4 +8,5 @@ export default interface FileUploaderProp {
     name:string;
     id:string
     register: UseFormRegister<FieldValues>;
+    setSelectedFile:any
 }

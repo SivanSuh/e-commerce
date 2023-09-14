@@ -8,7 +8,7 @@ import {
 } from "react-hook-form";
 
 interface InputProps {
-  type?: "text" | "password";
+  type?: "text" | "password" | "number";
   placeholder?: string;
   id: string;
   register: UseFormRegister<FieldValues>;

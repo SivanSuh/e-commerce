@@ -9,19 +9,36 @@ import { AddNewProducts } from "@/store/slices/addProductSlice";
 import NewProductProps from "./props";
 import FileUpload from "@/components/Atoms/FileUpload";
 import { useSelector } from "react-redux";
+import CategoryModel from "@/modelsType/CategoryModel";
 
 const NewProduct: FC<NewProductProps> = ({ setOpenModal }) => {
-  const [file, setFile] = useState<File | null>(null);
+  // const [file, setFile] = useState<File | null>(null);
+  const [selectedFile, setSelectedFile] = useState<null | any | File>(null);
+
   const { category } = useSelector((state: RootState) => state.getCategories);
-  const { register, handleSubmit } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
   const dispatch = AppDispatch();
 
   const onSubmit = async (data: any) => {
-    await dispatch(AddNewProducts(data));
+    const { title, price, description, category, image } = data;
+    const formData = new FormData();
+    formData.append("image", selectedFile);
+    formData.append("title", title);
+    formData.append("description", description);
+    formData.append("price", price);
+    formData.append("category", category);
+    console.clear();
+    console.log("data", data);
+    console.log("values", formData);
+    await dispatch(AddNewProducts(formData as any));
 
-    setOpenModal?.(false);
+    // setOpenModal?.(false);
   };
-
+  console.log("hatlara", errors);
   useEffect(() => {}, [dispatch]);
   console.log("form categori", category);
   const formCategory = category?.map((item) => item.categoryName);
@@ -36,6 +53,7 @@ const NewProduct: FC<NewProductProps> = ({ setOpenModal }) => {
       <Input
         register={register}
         id="price"
+        type="number"
         name="price"
         placeholder="Ürün Fiyatı"
       />
@@ -45,19 +63,19 @@ const NewProduct: FC<NewProductProps> = ({ setOpenModal }) => {
         name="description"
         placeholder="Ürün Açıklaması"
       />
-      <Input
+      {/* <Input
         register={register}
         id="image"
         name="image"
         placeholder="Ürün Fotoğrafının yolunu ekleyiniz"
-      />
-      {/* <FileUpload
+      /> */}
+      <FileUpload
         register={register}
         title="Resim Ekleyiniz"
         id="image"
         name="image"
-        //onFileSelect={handleFileUpload}
-      /> */}
+        setSelectedFile={setSelectedFile}
+      />
       <SelectBox
         data={formCategory}
         register={register}

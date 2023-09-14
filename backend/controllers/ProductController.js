@@ -35,15 +35,16 @@ const addProducts = async (req, res) => {
     const cate = await CategoryModels.findOne({
       categoryName: category,
     });
-    console.log("caet", cate);
+    console.log("gelen data", req.file);
 
     const products = await ProductModel.create({
       title: title,
       price: price,
-      image: image,
+      image: req.file.filename,
       category: cate,
       description: description,
     });
+
     if (products) return res.send(products);
     else return res.json({ msg: "failed products" });
   } catch (err) {}

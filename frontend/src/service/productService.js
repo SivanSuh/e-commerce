@@ -3,6 +3,9 @@ import { api } from "./api";
 const addProducts = async (data) => {
   return api({
     url: "/products/add-products",
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
     method: "POST",
     data,
   });

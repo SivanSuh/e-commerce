@@ -14,6 +14,16 @@ export const login = createAsyncThunk("login",async (body:LoginModel, {rejectWit
        return rejectWithValue(error?.response?.data?.hata)
     }
 } )
+export const registerRequest = createAsyncThunk("register",async (body:RegisterModel, {rejectWithValue}) => {
+    try {
+        const response = await authService.registerService(body)
+        cookies.set("login",JSON.stringify(body))
+        return response
+    } catch (error) {
+        console.log("errr",error)
+       return rejectWithValue(error?.response?.data?.hata)
+    }
+} )
 
 interface AuthProps {
     formData:RegisterModel | null | unknown
@@ -56,6 +66,19 @@ const authSlice = createSlice({
             state.isLoggin = false
             state.error = action?.payload
             state.formData =action.payload
+        })
+
+        // register process
+        builder.addCase(registerRequest.fulfilled,(state,action) =>{
+            state.formData = action.payload?.data
+        })
+        builder.addCase(registerRequest.pending,(state,action) => {
+            state.loading = true
+        })
+        builder.addCase(registerRequest.rejected, (state,action) => {
+            state.isLoggin = false
+            state.error = action?.payload
+            //state.formData =action.payload
         })
     }
 })

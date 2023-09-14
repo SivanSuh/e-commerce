@@ -11,6 +11,8 @@ const AuthModels = new Schema(
     },
     image: {
       type: String,
+      default:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx9csWZpVBMhOfyKFkkY_rI_1A58cE9j1xxT6wzhkjZ0Vq1PewcBtK8mCzWj3EFHQxIKg&usqp=CAU",
     },
     company: {
       type: String,
@@ -70,6 +72,12 @@ AuthModels.statics.register = async function (
   }
   const salt = await bcrypt.genSalt(10);
   const pass = await bcrypt.hash(password, salt);
+
+  const passwordControl = await bcrypt.compare(password, confirmPassword);
+  if (!passwordControl) {
+    throw Error("Paralolar Eşleşmiyor");
+  }
+
   const user = await this.create({
     email,
     password: pass,

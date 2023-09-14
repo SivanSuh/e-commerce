@@ -33,8 +33,6 @@ const Card: React.FC<CardProps> = ({ categories }) => {
     }
   }, [dispatch, categories]);
 
-  console.log("get data", getData);
-
   return (
     <template className={Style.column}>
       <div className={Style.newProduct}>

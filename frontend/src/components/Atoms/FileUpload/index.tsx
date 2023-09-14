@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import FileUploaderProp from "./props";
 
 const FileUpload: React.FC<FileUploaderProp> = ({
@@ -7,15 +7,15 @@ const FileUpload: React.FC<FileUploaderProp> = ({
   id,
   name,
   register,
+  setSelectedFile,
 }) => {
-  const [selectedFile, setSelectedFile] = useState<null | any | File>(null);
+  // const [selectedFile, setSelectedFile] = useState<null | any | File>(null);
   const [image, setImage] = useState<File | any>({ preview: "", raw: "" });
-  //   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //     if (e.target.files) {
-  //       setFile(e.target.files[0]);
-  //     }
-  //     console.log("e.target.files", e.target.files);
-  //   };
+
+  const handleFileChange = (e: any) => {
+    console.log("seçilen image", e.target.files[0]);
+    setSelectedFile(e.target.files[0]);
+  };
 
   const handleUpload = async (e: any) => {
     e.preventDefault();
@@ -30,14 +30,14 @@ const FileUpload: React.FC<FileUploaderProp> = ({
       body: formData,
     });
   };
-  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (event.target.files?.length) {
-      setImage({
-        preview: URL.createObjectURL(event.target.files[0]),
-        raw: event.target.files[0],
-      });
-    }
-  };
+  // const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  //   if (event.target.files?.length) {
+  //     setImage({
+  //       preview: URL.createObjectURL(event.target.files[0]),
+  //       raw: event.target.files[0],
+  //     });
+  //   }
+  // };
   return (
     <>
       <input
