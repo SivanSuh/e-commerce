@@ -9,7 +9,6 @@ import { AddNewProducts } from "@/store/slices/addProductSlice";
 import NewProductProps from "./props";
 import FileUpload from "@/components/Atoms/FileUpload";
 import { useSelector } from "react-redux";
-import CategoryModel from "@/modelsType/CategoryModel";
 
 const NewProduct: FC<NewProductProps> = ({ setOpenModal }) => {
   // const [file, setFile] = useState<File | null>(null);
@@ -31,16 +30,14 @@ const NewProduct: FC<NewProductProps> = ({ setOpenModal }) => {
     formData.append("description", description);
     formData.append("price", price);
     formData.append("category", category);
-    console.clear();
-    console.log("data", data);
-    console.log("values", formData);
+
     await dispatch(AddNewProducts(formData as any));
 
-    // setOpenModal?.(false);
+    setOpenModal?.(false);
   };
-  console.log("hatlara", errors);
+
   useEffect(() => {}, [dispatch]);
-  console.log("form categori", category);
+
   const formCategory = category?.map((item) => item.categoryName);
   return (
     <form className={Style.form} onSubmit={handleSubmit(onSubmit)}>

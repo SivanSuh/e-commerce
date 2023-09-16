@@ -29,6 +29,7 @@ const connect = async () => {
 app.use(cors());
 app.use("/products", products);
 app.use("/auth", auth);
+app.use("/uploads", express.static("uploads"));
 
 app.listen(PORT, () => {
   connect();

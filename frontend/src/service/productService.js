@@ -19,6 +19,9 @@ const selectProduct = async (id) => {
 const getProducts = async () => {
   return api({
     url: "/products/all-products",
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
     method: "GET",
   });
 };

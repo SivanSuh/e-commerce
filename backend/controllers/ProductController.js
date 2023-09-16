@@ -35,12 +35,11 @@ const addProducts = async (req, res) => {
     const cate = await CategoryModels.findOne({
       categoryName: category,
     });
-    console.log("gelen data", req.file);
 
     const products = await ProductModel.create({
       title: title,
       price: price,
-      image: req.file.filename,
+      image: req.file.path,
       category: cate,
       description: description,
     });

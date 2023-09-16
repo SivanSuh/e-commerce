@@ -21,7 +21,7 @@ const CardComponents: React.FC<CardProps> = ({ item }) => {
     e.stopPropagation();
     router.push(`/products/${item?._id}`);
   };
-  console.log("card lar", item);
+  console.log("item", item);
   return (
     <div
       className={Style.card}
