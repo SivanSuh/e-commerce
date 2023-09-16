@@ -26,6 +26,10 @@ const connect = async () => {
   }
 };
 
+app.get("/", (req, res) => {
+  res.send("Hello World!");
+});
+
 app.use(cors());
 app.use("/products", products);
 app.use("/auth", auth);
