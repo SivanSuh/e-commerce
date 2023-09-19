@@ -19,6 +19,7 @@ const initialState:AddProductProps = {
 export const AddNewProducts = createAsyncThunk("add-new-products", async (data:ProductCardModel, { rejectWithValue}) => {
     try {
         const res = await productService.addProducts(data)
+        console.log("form datayla beraber eklendi",res)
         return res
     } catch (error) {
         return rejectWithValue(error)
@@ -28,6 +29,7 @@ export const AddNewProducts = createAsyncThunk("add-new-products", async (data:P
 export const getAllProduct = createAsyncThunk("get-products", async () => {
     try {
         const res = await productService.getProducts()
+        console.log("all products",res.data)
         return res
     } catch (error) {
         return console.log(error)

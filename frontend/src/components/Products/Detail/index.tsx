@@ -13,7 +13,8 @@ const ProductDetail: React.FC<ProductDetailProp> = ({ detail }) => {
 
   const dispatch = AppDispatch();
   const filterValue = cardItem.find((item) => item._id === detail._id);
-  console.log("f,lter", filterValue);
+
+  const baseUrl = process.env.NEXT_PUBLIC_BACKEND_BASE_URL;
   return (
     <main className={Style.container}>
       <Link href="/">
@@ -21,7 +22,11 @@ const ProductDetail: React.FC<ProductDetailProp> = ({ detail }) => {
       </Link>
       <main className={Style.details}>
         <div className={Style.image}>
-          <img src={detail?.image} alt={detail?.title} className="w-full" />
+          <img
+            src={`${baseUrl}/uploads/${detail?.image}`}
+            alt={detail?.title}
+            className="w-full"
+          />
         </div>
         <div className={Style.description}>
           <p className={Style.title}>{detail?.title}</p>

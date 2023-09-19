@@ -39,7 +39,7 @@ const addProducts = async (req, res) => {
     const products = await ProductModel.create({
       title: title,
       price: price,
-      image: req.file.path,
+      image: req.file.filename,
       category: cate,
       description: description,
     });
@@ -52,6 +52,7 @@ const addProducts = async (req, res) => {
 const getAllProducts = async (req, res) => {
   try {
     const allProducts = await ProductModel.find().populate("category");
+    console.log("all product merhaba", allProducts);
     res.send(allProducts);
   } catch (err) {
     console.log(err);

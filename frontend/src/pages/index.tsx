@@ -26,8 +26,6 @@ function Home() {
     }
   }, [logins, dispatch]);
 
-  console.log("seçilen categori", categories);
-
   // const handleChange = (e: any) => {
   //   // const item = e.target.name;
   //   const isChecked = e.target.checked;

@@ -4,6 +4,7 @@ const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const bodyParser = require("body-parser");
+const path = require("path");
 
 dotenv.config();
 
@@ -16,6 +17,8 @@ app.use(bodyParser.json());
 // router import
 const products = require("./routes/productsRoutes");
 const auth = require("./routes/authRoutes");
+
+app.use("/uploads", express.static("uploads"));
 
 const connect = async () => {
   try {
@@ -33,7 +36,6 @@ app.get("/", (req, res) => {
 app.use(cors());
 app.use("/products", products);
 app.use("/auth", auth);
-app.use("/uploads", express.static("uploads"));
 
 app.listen(PORT, () => {
   connect();

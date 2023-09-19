@@ -22,6 +22,8 @@ const CardComponents: React.FC<CardProps> = ({ item }) => {
     router.push(`/products/${item?._id}`);
   };
   console.log("item", item);
+
+  const baseUrl = process.env.NEXT_PUBLIC_BACKEND_BASE_URL;
   return (
     <div
       className={Style.card}
@@ -31,7 +33,7 @@ const CardComponents: React.FC<CardProps> = ({ item }) => {
       onMouseLeave={() => setHover("hidden")}
     >
       <figure className={Style.figure}>
-        <img src={item.image} alt={item.title} />
+        <img src={`${baseUrl}/uploads/${item.image}`} alt={item.title} />
       </figure>
       <h2 className={Style.title}>{item.title}</h2>
       <p className={Style.price}>{item.price}</p>

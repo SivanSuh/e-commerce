@@ -11,6 +11,8 @@ const Basket = () => {
   let total = 0;
   const dispatch = AppDispatch();
 
+  const baseUrl = process.env.NEXT_PUBLIC_BACKEND_BASE_URL;
+
   return (
     <main className={Style.container}>
       <div className="flex flex-col w-3/4 gap-5">
@@ -22,7 +24,7 @@ const Basket = () => {
                 <div className="flex">
                   <Link href={`/products/${item?._id}`}>
                     <img
-                      src={item.image}
+                      src={`${baseUrl}/uploads/${item.image}`}
                       alt={item.title}
                       className="h-28 w-40 object-contain"
                     />
