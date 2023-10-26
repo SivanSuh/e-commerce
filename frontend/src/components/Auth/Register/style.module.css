@@ -1,5 +1,5 @@
 .form {
-    @apply flex flex-col md:max-w-3xl justify-center gap-4  mx-auto translate-y-1/2 
+    @apply flex flex-col md:max-w-3xl justify-center gap-4  mx-auto  
 }
 .title {
     @apply text-3xl text-center mb-2

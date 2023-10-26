@@ -74,9 +74,9 @@ AuthModels.statics.register = async function (
   const pass = await bcrypt.hash(password, salt);
 
   const passwordControl = await bcrypt.compare(password, confirmPassword);
-  if (!passwordControl) {
-    throw Error("Paralolar Eşleşmiyor");
-  }
+  // if (!passwordControl) {
+  //   throw Error("Paralolar Eşleşmiyor");
+  // }
 
   const user = await this.create({
     email,
