@@ -28,7 +28,7 @@ const Navbar = () => {
             <Link href="/basket">
               <div className={Style.basket}>
                 <SlBasket size={30} />
-                <span className="absolute right-0 -top-5 z-10 text-red-500 text-2xl">
+                <span className="absolute right-0 -top-4 z-10 text-red-500 text-xl">
                   {cardItem.length}
                 </span>
               </div>

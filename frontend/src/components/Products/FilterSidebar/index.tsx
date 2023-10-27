@@ -22,21 +22,31 @@ const FilterSidebar: React.FC<FilterSidebarProps> = ({
     dispatch(getAllCategories());
   }, [dispatch]);
 
-  console.log("catefory,", category);
-  console.log("set ler ,", setCategories);
+  console.log("categorys ile", category);
+  console.log("categories", categories);
 
   return (
     <main className="sticky top-20">
       <h2 className="mb-3 font-bold">CATEGORY</h2>
-      {category?.map((item: CategoryModel) => (
-        <Checkbox
-          checked={item?._id === categories}
-          title={item?.categoryName}
-          key={item?._id}
-          name={item?.categoryName}
-          onClick={() => setCategories(item?._id)}
-        />
-      ))}
+      <Checkbox
+        checked={true}
+        name="radio"
+        onClick={() => dispatch(getAllCategories())}
+        title="All"
+      />
+      {category?.map((item: CategoryModel, index: any) => {
+        return (
+          <Checkbox
+            checked={item?._id === categories}
+            title={item?.categoryName}
+            key={item?._id}
+            name={item?.categoryName}
+            onClick={() => {
+              setCategories(item?._id);
+            }}
+          />
+        );
+      })}
     </main>
   );
 };

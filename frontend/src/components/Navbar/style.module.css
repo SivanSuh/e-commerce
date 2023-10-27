@@ -1,8 +1,8 @@
 .nav {
-    @apply h-20 w-full flex items-center  bg-[#1b6393] py-3 sticky top-0 z-30
+    @apply h-14 w-full flex items-center  bg-[#1b6393] py-3 sticky top-0 z-30
 }
 .container {
-    @apply max-w-7xl mx-auto flex items-center justify-between  w-full px-2 text-white
+    @apply max-w-7xl mx-auto flex items-center justify-between  w-full p-2 text-white
 }
 .login{
     @apply flex justify-between items-center gap-5
@@ -11,5 +11,5 @@
     @apply relative 
 }
 .imageContainer{
-    @apply min-w-[50px] h-10 rounded-full
+    @apply min-w-[50px] h-8 rounded-full
 }

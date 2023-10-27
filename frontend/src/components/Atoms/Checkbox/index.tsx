@@ -6,15 +6,16 @@ const Checkbox: FC<ChackboxProps> = ({
   title,
   onClick,
   name,
-  checked = false,
+  checked = true,
 }) => {
   return (
     <label className={Style.label}>
       <input
-        type="checkbox"
+        type="radio"
         className={Style.checkbox}
-        checked={checked}
-        name={name}
+        // checked={checked}
+
+        name={"radio"}
         onChange={onClick}
         value={name}
       />

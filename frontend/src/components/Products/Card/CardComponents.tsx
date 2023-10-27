@@ -4,7 +4,6 @@ import CardProps from "./props";
 import Button from "@/components/Atoms/Button";
 import { AppDispatch } from "@/store/store";
 import { addBasket } from "@/store/slices/addBasketSlice";
-import Link from "next/link";
 import { useRouter } from "next/router";
 
 const CardComponents: React.FC<CardProps> = ({ item }) => {
@@ -21,7 +20,6 @@ const CardComponents: React.FC<CardProps> = ({ item }) => {
     e.stopPropagation();
     router.push(`/products/${item?._id}`);
   };
-  console.log("item", item);
 
   const baseUrl = process.env.NEXT_PUBLIC_BACKEND_BASE_URL;
   return (
