@@ -4,5 +4,5 @@ export default interface ChackboxProps {
     onClick: () => void;
     checked: boolean;
     name: string;
-    // index:any
+    defaultChecked?:boolean
   }

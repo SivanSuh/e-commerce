@@ -31,7 +31,11 @@ const FilterSidebar: React.FC<FilterSidebarProps> = ({
       <Checkbox
         checked={true}
         name="radio"
-        onClick={() => dispatch(getAllCategories())}
+        defaultChecked={true}
+        onClick={() => {
+          setCategories("");
+          dispatch(getAllCategories());
+        }}
         title="All"
       />
       {category?.map((item: CategoryModel, index: any) => {
