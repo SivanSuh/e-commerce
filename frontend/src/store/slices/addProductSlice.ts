@@ -56,7 +56,13 @@ export const selectCategories = createAsyncThunk("select-category", async (id:st
 const addProductSlice = createSlice({
     name:"add-product",
     initialState,
-    reducers:{},
+    reducers:{
+        searchList:(state,action) => {
+            state.getData.filter(user => {
+                user.title.toLowerCase().includes("")
+            })
+        }
+    },
     extraReducers:(builder) => {
         builder.addCase(AddNewProducts.fulfilled,(state,action) =>{
             state.getData.push(action.payload.data) 

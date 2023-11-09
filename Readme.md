@@ -12,6 +12,7 @@ you can Login/Register then product add a basket or add new product and filter t
 - TypeScript
 - Tailwind Css
 - Redux Toolkit
+- Docker
 
 ## Backend Tech
 
@@ -19,3 +20,4 @@ you can Login/Register then product add a basket or add new product and filter t
 - Express Js
 - Mongo Db
 - Multer js
+- Docker
